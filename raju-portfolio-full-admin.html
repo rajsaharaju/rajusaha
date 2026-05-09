@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Raju Saha® — Digital Creator</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0a0a0a;--dark:#111;--card:#161616;
+  --orange:#e84c1e;--orange2:#c93a0e;--ol:#ff6b35;
+  --white:#fff;--border:rgba(255,255,255,0.08);--borderb:rgba(255,255,255,0.14);
+  --fd:'Anton',sans-serif;--f:'DM Sans',sans-serif;--m:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--f);font-weight:300;overflow-x:hidden;cursor:none}
+.cur{width:10px;height:10px;background:var(--orange);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:normal}
+.cur.big{width:38px;height:38px;background:rgba(232,76,30,.2);border:1px solid var(--orange)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2.5rem;background:rgba(10,10,10,.55);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nl{font-family:var(--fd);font-size:1.1rem;letter-spacing:.05em;color:var(--white);text-decoration:none}
+.nl sup{font-size:.45rem;vertical-align:super;color:var(--orange)}
+nav ul{display:flex;gap:2rem;list-style:none}
+nav ul a{font-family:var(--m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
+nav ul a:hover{color:var(--white)}
+.ncta{background:var(--orange);color:var(--white);font-family:var(--m);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem 1.2rem;text-decoration:none;border-radius:50px;transition:background .2s,transform .15s;display:flex;align-items:center;gap:.4rem}
+.ncta:hover{background:var(--ol);transform:translateY(-1px)}
+.hbg{display:none;background:none;border:1px solid var(--border);color:var(--white);padding:.4rem .7rem;border-radius:6px;cursor:pointer;font-size:1rem}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:0 2.5rem 3.5rem}
+.hbg2{position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 60% 30%,rgba(232,76,30,.85) 0%,rgba(180,40,10,.5) 40%,transparent 75%),radial-gradient(ellipse 40% 60% at 80% 60%,rgba(200,50,10,.4) 0%,transparent 60%),#0a0a0a}
+.hperson{position:absolute;right:18%;top:0;bottom:0;width:35%;background:radial-gradient(ellipse 80% 100% at 50% 40%,rgba(0,0,0,.9) 20%,rgba(0,0,0,.3) 70%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,black 15%,black 85%,transparent 100%)}
+.hey{font-family:var(--m);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.8rem;position:relative;z-index:2}
+.htitle{font-family:var(--fd);font-size:clamp(4.5rem,12vw,10rem);line-height:.92;letter-spacing:.01em;color:var(--white);position:relative;z-index:2;margin-bottom:2.5rem;text-transform:uppercase}
+.hright{position:absolute;right:2.5rem;top:50%;transform:translateY(-50%);max-width:280px;text-align:right;z-index:2}
+.htagline{font-size:1.2rem;font-weight:400;line-height:1.35;color:var(--white);margin-bottom:.6rem}
+.hsub{font-size:.82rem;line-height:1.7;color:rgba(255,255,255,.65)}
+.hsvcs{display:flex;gap:2.5rem;position:relative;z-index:2}
+.hsvc{display:flex;flex-direction:column;gap:.2rem}
+.sn{font-family:var(--m);font-size:.58rem;color:rgba(255,255,255,.45);letter-spacing:.1em}
+.snm{font-family:var(--m);font-size:.68rem;color:rgba(255,255,255,.75);letter-spacing:.05em}
+.shi{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;z-index:2}
+.shl{width:1px;height:2.5rem;background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);animation:pls 2s infinite}
+@keyframes pls{0%,100%{opacity:.3}50%{opacity:1}}
+.sht{font-family:var(--m);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+
+/* MARQUEE */
+.mwrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:.9rem 0;background:rgba(255,255,255,.02)}
+.mt{display:flex;gap:3rem;white-space:nowrap;animation:mq 25s linear infinite}
+.mt2{animation-direction:reverse;animation-duration:20s}
+.mi{font-family:var(--m);font-size:.78rem;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:3rem;flex-shrink:0}
+.md{width:3px;height:3px;border-radius:50%;background:var(--orange);flex-shrink:0}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.sec{padding:7rem 2.5rem}
+.sl{font-family:var(--m);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:3.5rem;display:flex;align-items:center;gap:1rem}
+.sl::after{content:'';flex:1;height:1px;background:rgba(232,76,30,.25)}
+
+/* ABOUT */
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.atitle{font-family:var(--fd);font-size:clamp(2.2rem,5vw,4rem);line-height:1;text-transform:uppercase;letter-spacing:.02em;margin-bottom:1.8rem;color:var(--white)}
+.atitle em{font-style:italic;color:var(--orange);font-family:'DM Sans',sans-serif;font-weight:300;text-transform:none;font-size:.75em}
+.atxt{font-size:.9rem;line-height:1.9;color:rgba(255,255,255,.5);margin-bottom:1.5rem}
+.ctal{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--m);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:.25rem;transition:color .2s,border-color .2s}
+.ctal:hover{color:var(--orange);border-color:var(--orange)}
+.ctal::after{content:'→';transition:transform .2s}
+.ctal:hover::after{transform:translateX(4px)}
+.aphotos{position:relative;height:460px}
+.pm{position:absolute;width:72%;height:80%;top:0;left:0;background:var(--card);border:1px solid var(--border);overflow:hidden}
+.ps{position:absolute;width:52%;height:48%;bottom:0;right:0;background:var(--card);border:2px solid var(--orange);overflow:hidden}
+.pi{width:100%;height:100%;object-fit:cover;filter:grayscale(100%) contrast(1.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.15);font-family:var(--m);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase}
+.sc{position:absolute;bottom:28%;left:55%;background:var(--orange);padding:1rem 1.2rem;z-index:3}
+.scn{display:block;font-family:var(--fd);font-size:1.8rem;color:var(--white);line-height:1}
+.scl{font-family:var(--m);font-size:.55rem;color:rgba(255,255,255,.8);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;display:block}
+
+/* GIG SECTION */
+.gig-section{padding:7rem 2.5rem;background:var(--dark)}
+.gig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:3.5rem}
+.gig-card{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--card);border:1px solid var(--border);cursor:pointer}
+.gig-card img{width:100%;height:100%;object-fit:cover;filter:grayscale(30%);transition:transform .5s ease,filter .5s}
+.gig-card:hover img{transform:scale(1.05);filter:grayscale(0%)}
+.gig-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.9),transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;transform:translateY(30%);transition:transform .4s}
+.gig-card:hover .gig-overlay{transform:translateY(0)}
+.gig-name{font-family:var(--fd);font-size:1.2rem;text-transform:uppercase;letter-spacing:.03em;margin-bottom:.4rem}
+.gig-desc{font-family:var(--m);font-size:.6rem;color:rgba(255,255,255,.6);letter-spacing:.08em;text-transform:uppercase}
+.gig-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;color:rgba(255,255,255,.15)}
+.gig-empty-icon{font-size:2.5rem}
+.gig-empty-txt{font-family:var(--m);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase}
+.gig-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .4s;z-index:2}
+.gig-card:hover::before{transform:scaleX(1)}
+
+/* PHOTO GRID B&W */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin:0 2.5rem 5rem}
+.pgi{aspect-ratio:3/4;overflow:hidden;position:relative;background:var(--card)}
+.pgi:nth-child(2){aspect-ratio:3/5}
+.pgii{width:100%;height:100%;background:linear-gradient(160deg,#222 0%,#111 50%,#1a1a1a 100%);transition:transform .5s}
+.pgi:hover .pgii{transform:scale(1.04)}
+.pgi:nth-child(1) .pgii{background:linear-gradient(135deg,#1c1c1c 0%,#2a2a2a 60%,#111 100%)}
+.pgi:nth-child(2) .pgii{background:linear-gradient(160deg,#222 0%,#333 50%,#181818 100%)}
+.pgi:nth-child(3) .pgii{background:linear-gradient(140deg,#1a1a1a 0%,#282828 60%,#0f0f0f 100%)}
+.pgl{position:absolute;bottom:.8rem;left:.8rem;font-family:var(--m);font-size:.55rem;color:rgba(255,255,255,.3);letter-spacing:.12em;text-transform:uppercase}
+
+/* PROJECTS */
+.ph{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem}
+.ptit{font-family:var(--fd);font-size:clamp(1.8rem,4vw,3.2rem);text-transform:uppercase;line-height:1;max-width:420px}
+.pgr{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border)}
+.pc{background:var(--black);position:relative;overflow:hidden;cursor:pointer}
+.pc:first-child{grid-column:span 2;aspect-ratio:21/8}
+.pc:not(:first-child){aspect-ratio:4/3}
+.pci{width:100%;height:100%;transition:transform .6s}
+.pc:hover .pci{transform:scale(1.05)}
+.p1{background:linear-gradient(135deg,#1a0f08 0%,#2d1a0a 40%,#150a05 100%)}
+.p2{background:linear-gradient(135deg,#0a100f 0%,#0f1a18 50%,#071010 100%)}
+.p3{background:linear-gradient(135deg,#100a0a 0%,#1e0f0d 50%,#0d0707 100%)}
+.pnum{position:absolute;top:1.2rem;left:1.2rem;font-family:var(--m);font-size:.55rem;color:rgba(232,76,30,.5);letter-spacing:.15em}
+.pinfo{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(to top,rgba(10,10,10,.92),transparent);transform:translateY(40%);transition:transform .4s}
+.pc:hover .pinfo{transform:translateY(0)}
+.pn{font-family:var(--fd);font-size:1.4rem;text-transform:uppercase;margin-bottom:.5rem}
+.ptags{display:flex;gap:.4rem;flex-wrap:wrap}
+.ptag{font-family:var(--m);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(232,76,30,.4);color:var(--orange);padding:.18rem .55rem}
+.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .4s;z-index:2}
+.pc:hover::before{transform:scaleX(1)}
+
+/* SERVICES */
+.svcsec{background:var(--dark);padding:7rem 2.5rem}
+.svgrid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border)}
+.svi{padding:2.5rem 2rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden;transition:background .3s}
+.svi:nth-child(3n){border-right:none}
+.svi:hover{background:rgba(232,76,30,.04)}
+.svi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.svi:hover::before{transform:scaleX(1)}
+.svn{font-family:var(--m);font-size:.58rem;color:var(--orange);letter-spacing:.15em;margin-bottom:1.5rem;display:block}
+.svnm{font-family:var(--fd);font-size:1.3rem;text-transform:uppercase;letter-spacing:.03em;margin-bottom:.8rem;line-height:1.1}
+.svd{font-size:.8rem;line-height:1.8;color:rgba(255,255,255,.4)}
+
+/* PROCESS */
+.proclist{display:flex;flex-direction:column}
+.proci{display:grid;grid-template-columns:70px 1fr 1fr;gap:3rem;align-items:center;padding:2.5rem 0;border-bottom:1px solid var(--border);margin:0 -2.5rem;padding-left:2.5rem;padding-right:2.5rem;transition:background .2s}
+.proci:first-child{border-top:1px solid var(--border)}
+.proci:hover{background:rgba(232,76,30,.025)}
+.procb{font-family:var(--fd);font-size:2.8rem;color:rgba(232,76,30,.2);font-style:italic}
+.procn{font-family:var(--fd);font-size:1.6rem;text-transform:uppercase;letter-spacing:.03em}
+.procd{font-size:.8rem;line-height:1.8;color:rgba(255,255,255,.4)}
+
+/* PRICING */
+.prcsec{background:var(--dark);padding:7rem 2.5rem}
+.prcgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3.5rem}
+.prcc{background:var(--dark);padding:2.5rem 2rem;position:relative}
+.prcc.feat{background:var(--black)}
+.prcc.feat::before{content:'Most Popular';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--orange);color:var(--white);font-family:var(--m);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .9rem}
+.prct{font-family:var(--m);font-size:.6rem;color:rgba(255,255,255,.4);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem}
+.prcv{font-family:var(--fd);font-size:3.2rem;letter-spacing:-.02em;line-height:1;margin-bottom:.2rem;display:flex;align-items:flex-start}
+.prccur{font-size:1.4rem;margin-top:.7rem;margin-right:.05rem;color:var(--orange)}
+.prcp{font-family:var(--m);font-size:.65rem;color:rgba(255,255,255,.35);margin-bottom:1.8rem}
+.prcf{list-style:none;margin-bottom:2rem}
+.prcfi{padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.8rem;color:rgba(255,255,255,.5);display:flex;gap:.6rem;align-items:center}
+.prcfi::before{content:'✦';color:var(--orange);font-size:.45rem;flex-shrink:0}
+.prcbtn{display:block;text-align:center;width:100%;padding:.8rem;font-family:var(--m);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none;border:1px solid rgba(255,255,255,.15);transition:all .25s}
+.prcbtn:hover,.prcc.feat .prcbtn{background:var(--orange);border-color:var(--orange);color:var(--white)}
+
+/* VALUES */
+.vgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin-top:4rem}
+.vi{background:var(--black);padding:3rem;transition:background .3s}
+.vi:nth-child(odd){background:var(--dark)}
+.vi:hover{background:rgba(232,76,30,.04)}
+.vl{font-family:var(--m);font-size:.58rem;color:var(--orange);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem}
+.vn{font-family:var(--fd);font-size:1.8rem;text-transform:uppercase;letter-spacing:.02em;margin-bottom:.8rem;line-height:1}
+.vt{font-size:.82rem;line-height:1.9;color:rgba(255,255,255,.4)}
+
+/* FAQ */
+.faqsec{background:var(--dark);padding:7rem 2.5rem}
+.faqlist{max-width:760px;margin-top:3.5rem}
+.faqitem{border-bottom:1px solid var(--border)}
+.faqq{padding:1.6rem 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:.95rem;font-weight:400;transition:color .2s}
+.faqq:hover{color:var(--orange)}
+.faqicon{width:22px;height:22px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem;color:var(--orange);transition:transform .3s}
+.faqitem.open .faqicon{transform:rotate(45deg)}
+.faqa{max-height:0;overflow:hidden;font-size:.82rem;line-height:1.9;color:rgba(255,255,255,.45);transition:max-height .4s,padding .4s}
+.faqitem.open .faqa{max-height:180px;padding-bottom:1.4rem}
+
+/* CONTACT */
+.cwrap{border:1px solid var(--border);padding:5rem;position:relative;overflow:hidden}
+.cwrap::before{content:'';position:absolute;top:-30%;right:-10%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(232,76,30,.06),transparent 70%);pointer-events:none}
+.ctit{font-family:var(--fd);font-size:clamp(2.5rem,6vw,5rem);text-transform:uppercase;line-height:.95;letter-spacing:.01em;margin-bottom:.8rem}
+.ctit em{color:var(--orange);font-style:italic;font-family:'DM Sans',sans-serif;font-weight:300;text-transform:none;font-size:.7em}
+.csub{font-size:.88rem;color:rgba(255,255,255,.4);margin-bottom:3.5rem;max-width:440px;line-height:1.8}
+.cform{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.fg{display:flex;flex-direction:column;gap:.4rem}
+.fg.full{grid-column:span 2}
+.flbl{font-family:var(--m);font-size:.55rem;color:rgba(255,255,255,.35);letter-spacing:.15em;text-transform:uppercase}
+.finp{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.12);color:var(--white);font-family:var(--f);font-size:.9rem;font-weight:300;padding:.65rem 0;outline:none;transition:border-color .2s}
+.finp:focus{border-color:var(--orange)}
+.finp::placeholder{color:rgba(255,255,255,.2)}
+textarea.finp{resize:none;min-height:90px}
+.sbtn{grid-column:span 2;width:fit-content;background:var(--orange);color:var(--white);border:none;padding:1rem 2.5rem;font-family:var(--m);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .15s;margin-top:.5rem}
+.sbtn:hover{background:var(--ol);transform:translateY(-2px)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:3.5rem 2.5rem 2.5rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3.5rem}
+.flogo{font-family:var(--fd);font-size:1.3rem;letter-spacing:.05em;display:block;margin-bottom:.8rem}
+.flogo sup{font-size:.4rem;vertical-align:super;color:var(--orange)}
+.ftag{font-size:.82rem;line-height:1.8;color:rgba(255,255,255,.35);margin-bottom:1.5rem}
+.socs{display:flex;gap:.6rem}
+.socbtn{width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--m);font-size:.55rem;color:rgba(255,255,255,.4);text-decoration:none;transition:all .2s}
+.socbtn:hover{border-color:var(--orange);color:var(--orange)}
+.fcol h4{font-family:var(--m);font-size:.55rem;color:rgba(255,255,255,.3);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.flinks a{font-size:.8rem;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--white)}
+.fbot{border-top:1px solid var(--border);padding:1.5rem 2.5rem;display:flex;justify-content:space-between}
+.fcopy{font-family:var(--m);font-size:.6rem;color:rgba(255,255,255,.25)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+
+/* =================== ADMIN SYSTEM =================== */
+.admin-float{position:fixed;bottom:2rem;right:2rem;z-index:9000;background:var(--orange);color:var(--white);border:none;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;box-shadow:0 4px 20px rgba(232,76,30,.4);transition:transform .2s,box-shadow .2s}
+.admin-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(232,76,30,.6)}
+
+/* Login Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);z-index:9500;display:none;align-items:center;justify-content:center}
+.modal-overlay.show{display:flex}
+.modal-box{background:#111;border:1px solid var(--border);padding:3rem;width:420px;max-width:90vw;position:relative}
+.modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--orange)}
+.modal-title{font-family:var(--fd);font-size:1.8rem;text-transform:uppercase;letter-spacing:.03em;margin-bottom:.4rem}
+.modal-sub{font-family:var(--m);font-size:.6rem;color:rgba(255,255,255,.35);letter-spacing:.12em;text-transform:uppercase;margin-bottom:2rem}
+.modal-label{font-family:var(--m);font-size:.58rem;color:rgba(255,255,255,.4);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem;display:block}
+.modal-input{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.15);color:var(--white);font-family:var(--f);font-size:.95rem;padding:.65rem 0;outline:none;transition:border-color .2s;margin-bottom:1.5rem}
+.modal-input:focus{border-color:var(--orange)}
+.modal-btn{width:100%;background:var(--orange);color:var(--white);border:none;padding:1rem;font-family:var(--m);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.modal-btn:hover{background:var(--ol)}
+.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,.4);font-size:1.2rem;cursor:pointer;transition:color .2s}
+.modal-close:hover{color:var(--white)}
+.modal-err{background:rgba(232,76,30,.12);border:1px solid rgba(232,76,30,.3);color:#ff8a70;font-family:var(--m);font-size:.65rem;padding:.6rem .8rem;margin-bottom:1rem;display:none}
+.modal-err.show{display:block}
+
+/* ADMIN PANEL */
+.admin-panel{position:fixed;top:0;right:0;bottom:0;width:460px;max-width:95vw;background:#0d0d0d;border-left:1px solid var(--border);z-index:9000;transform:translateX(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow:hidden}
+.admin-panel.open{transform:translateX(0)}
+.ap-head{padding:1.2rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:rgba(232,76,30,.06);position:relative}
+.ap-head::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--orange)}
+.ap-title{font-family:var(--fd);font-size:1.15rem;text-transform:uppercase;letter-spacing:.04em}
+.ap-title span{color:var(--orange)}
+.ap-close{background:none;border:1px solid var(--border);color:rgba(255,255,255,.5);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;flex-shrink:0}
+.ap-close:hover{border-color:var(--orange);color:var(--orange)}
+
+/* TABS - scrollable */
+.ap-tabs{display:flex;border-bottom:1px solid var(--border);background:#0d0d0d;flex-shrink:0;overflow-x:auto;scrollbar-width:none}
+.ap-tabs::-webkit-scrollbar{display:none}
+.ap-tab{flex-shrink:0;padding:.7rem .85rem;font-family:var(--m);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap}
+.ap-tab.active{color:var(--orange);border-bottom-color:var(--orange);background:rgba(232,76,30,.04)}
+.ap-body{flex:1;overflow-y:auto;padding:1.5rem}
+.ap-body::-webkit-scrollbar{width:3px}
+.ap-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.ap-section{margin-bottom:1.8rem}
+.ap-section-title{font-family:var(--m);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:1px solid rgba(232,76,30,.2)}
+.ap-field{margin-bottom:1rem}
+.ap-label{font-family:var(--m);font-size:.58rem;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.35rem;display:block}
+.ap-input{width:100%;background:#161616;border:1px solid var(--border);color:var(--white);font-family:var(--f);font-size:.82rem;padding:.55rem .8rem;outline:none;border-radius:4px;transition:border-color .2s}
+.ap-input:focus{border-color:var(--orange)}
+textarea.ap-input{resize:vertical;min-height:70px}
+.ap-save{width:100%;background:var(--orange);color:var(--white);border:none;padding:.7rem;font-family:var(--m);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background .2s,transform .15s;margin-top:.4rem}
+.ap-save:hover{background:var(--ol);transform:translateY(-1px)}
+.ap-save:active{transform:translateY(0)}
+.ap-save-sm{background:var(--orange);color:var(--white);border:none;padding:.45rem .9rem;font-family:var(--m);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background .2s}
+.ap-save-sm:hover{background:var(--ol)}
+.ap-danger{background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.3);color:#fca5a5;font-family:var(--m);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:.75rem;cursor:pointer;border-radius:4px;width:100%;transition:background .2s}
+.ap-danger:hover{background:rgba(220,38,38,.2)}
+.ap-danger-sm{background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.25);color:#fca5a5;font-family:var(--m);font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .7rem;cursor:pointer;border-radius:4px;transition:background .2s}
+.ap-danger-sm:hover{background:rgba(220,38,38,.2)}
+.ap-info{background:rgba(232,76,30,.06);border:1px solid rgba(232,76,30,.15);border-radius:6px;padding:.85rem;font-family:var(--m);font-size:.6rem;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:1rem}
+.ap-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);color:#4ade80;font-family:var(--m);font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;padding:.22rem .65rem;border-radius:4px;margin-bottom:1rem}
+.ap-btn-row{display:flex;gap:.5rem;margin-top:.4rem}
+
+/* Accordion inside sections tab */
+.acc{border:1px solid var(--border);border-radius:6px;margin-bottom:.8rem;overflow:hidden}
+.acc-hd{display:flex;align-items:center;justify-content:space-between;padding:.8rem 1rem;cursor:pointer;background:#161616;transition:background .2s}
+.acc-hd:hover{background:rgba(232,76,30,.06)}
+.acc-hd-title{font-family:var(--m);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:.6rem}
+.acc-hd-icon{color:var(--orange);font-size:.85rem;transition:transform .3s}
+.acc.open .acc-hd-icon{transform:rotate(45deg)}
+.acc-body{display:none;padding:1rem;border-top:1px solid var(--border);background:#0f0f0f}
+.acc.open .acc-body{display:block}
+.acc-count{background:rgba(232,76,30,.15);color:var(--orange);font-family:var(--m);font-size:.52rem;letter-spacing:.08em;padding:.15rem .45rem;border-radius:3px}
+
+/* Item cards in sections */
+.item-card{background:#161616;border:1px solid var(--border);border-radius:6px;padding:.9rem;margin-bottom:.7rem;position:relative}
+.item-card-num{font-family:var(--m);font-size:.55rem;color:var(--orange);letter-spacing:.1em;margin-bottom:.5rem}
+.item-card-row{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.5rem}
+
+/* Gig Upload Area */
+.gig-upload-zone{border:1.5px dashed rgba(232,76,30,.3);border-radius:6px;padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .3s,background .3s;position:relative;overflow:hidden}
+.gig-upload-zone:hover{border-color:var(--orange);background:rgba(232,76,30,.04)}
+.gig-upload-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;font-size:0}
+.gup-icon{font-size:2rem;margin-bottom:.5rem}
+.gup-txt{font-family:var(--m);font-size:.62rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;line-height:1.7}
+.gup-txt b{color:var(--orange)}
+.gig-preview-list{display:flex;flex-direction:column;gap:.6rem;margin-top:1rem}
+.gig-prev-item{display:flex;align-items:center;gap:.8rem;background:#161616;border:1px solid var(--border);padding:.6rem;border-radius:6px}
+.gig-prev-thumb{width:48px;height:48px;border-radius:4px;object-fit:cover;flex-shrink:0}
+.gig-prev-info{flex:1;min-width:0}
+.gig-prev-name{font-family:var(--m);font-size:.6rem;color:rgba(255,255,255,.6);letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
+.gig-prev-sub{font-size:.65rem;color:rgba(255,255,255,.35)}
+.gig-prev-del{background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.25);color:#fca5a5;width:26px;height:26px;border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.75rem;flex-shrink:0;transition:background .2s}
+.gig-prev-del:hover{background:rgba(220,38,38,.25)}
+.gig-input-row{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.4rem}
+
+/* Design tab */
+.color-row{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;background:#161616;border:1px solid var(--border);border-radius:6px;padding:.7rem}
+.color-swatch{width:36px;height:36px;border-radius:4px;border:2px solid rgba(255,255,255,.1);cursor:pointer;flex-shrink:0}
+.color-info{flex:1}
+.color-label{font-family:var(--m);font-size:.58rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.2rem}
+.color-val{font-family:var(--m);font-size:.72rem;color:rgba(255,255,255,.7)}
+.color-pick{opacity:0;position:absolute;width:0;height:0}
+
+/* FAQ special */
+.faq-add-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;background:rgba(34,197,94,.08);border:1px dashed rgba(34,197,94,.3);color:#4ade80;font-family:var(--m);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem;cursor:pointer;border-radius:4px;transition:all .2s;margin-top:.5rem}
+.faq-add-btn:hover{background:rgba(34,197,94,.15)}
+
+/* Logout bar */
+.ap-logout-bar{padding:.9rem 1.5rem;border-top:1px solid var(--border);background:#0d0d0d;flex-shrink:0;display:flex;align-items:center;justify-content:space-between}
+.ap-logout-bar span{font-family:var(--m);font-size:.6rem;color:rgba(255,255,255,.3);letter-spacing:.08em}
+.ap-logout{background:none;border:1px solid rgba(220,38,38,.3);color:#fca5a5;font-family:var(--m);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .8rem;border-radius:4px;cursor:pointer;transition:all .2s}
+.ap-logout:hover{background:rgba(220,38,38,.15)}
+
+/* Saved indicator */
+.save-ok{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(10px);background:#111;border:1px solid #22c55e;color:#4ade80;font-family:var(--m);font-size:.65rem;letter-spacing:.1em;padding:.65rem 1.4rem;border-radius:4px;z-index:9999;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap}
+.save-ok.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.2rem}
+  nav ul{display:none}
+  .hbg{display:block}
+  .hero,.sec{padding-left:1.2rem;padding-right:1.2rem}
+  .hright{display:none}
+  .hsvcs{flex-wrap:wrap;gap:1.2rem}
+  .agrid{grid-template-columns:1fr}
+  .aphotos{height:300px}
+  .pgrid{margin:0 1.2rem 3rem}
+  .pgr{grid-template-columns:1fr}
+  .pc:first-child{grid-column:span 1;aspect-ratio:4/3}
+  .svgrid{grid-template-columns:1fr 1fr}
+  .svi:nth-child(2n){border-right:none}
+  .prcsec,.faqsec,.svcsec,.gig-section{padding-left:1.2rem;padding-right:1.2rem}
+  .prcgrid{grid-template-columns:1fr}
+  .vgrid{grid-template-columns:1fr}
+  .cwrap{padding:2.5rem 1.5rem}
+  .cform{grid-template-columns:1fr}
+  .fg.full,.sbtn{grid-column:span 1}
+  footer{grid-template-columns:1fr 1fr;padding:2.5rem 1.2rem;gap:2rem}
+  .fbot{padding:1.2rem;flex-direction:column;gap:.4rem}
+  .proci{grid-template-columns:50px 1fr;padding:1.8rem 1.2rem;margin:0 -1.2rem}
+  .procd{display:none}
+  .gig-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cur" id="cur"></div>
+
+<!-- SAVE TOAST -->
+<div class="save-ok" id="saveOk">✓ Changes Saved!</div>
+
+<!-- ============ ADMIN LOGIN MODAL ============ -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeLogin()">✕</button>
+    <div class="modal-title">Admin <span style="color:var(--orange)">Panel</span></div>
+    <div class="modal-sub">Raju Saha® — Secured Access</div>
+    <div class="modal-err" id="loginErr">⚠ Incorrect password. Try again.</div>
+    <label class="modal-label">Password</label>
+    <input class="modal-input" type="password" id="pwInput" placeholder="Enter your password..." onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="modal-btn" onclick="doLogin()">🔐 Enter Dashboard</button>
+  </div>
+</div>
+
+<!-- ============ ADMIN PANEL (SIDEBAR) ============ -->
+<div class="admin-panel" id="adminPanel">
+  <div class="ap-head">
+    <div>
+      <div class="ap-title">Admin <span>Panel</span></div>
+      <div style="font-family:var(--m);font-size:.52rem;color:rgba(255,255,255,.3);letter-spacing:.1em;margin-top:2px">RAJU SAHA® — FULL CONTROL CENTER</div>
+    </div>
+    <button class="ap-close" onclick="closeAdmin()">✕</button>
+  </div>
+
+  <!-- TABS -->
+  <div class="ap-tabs">
+    <button class="ap-tab active" onclick="setTab('gig',this)">🖼 Gigs</button>
+    <button class="ap-tab" onclick="setTab('content',this)">✏️ Content</button>
+    <button class="ap-tab" onclick="setTab('sections',this)">📋 Sections</button>
+    <button class="ap-tab" onclick="setTab('design',this)">🎨 Design</button>
+    <button class="ap-tab" onclick="setTab('pages',this)">🔗 Pages</button>
+    <button class="ap-tab" onclick="setTab('settings',this)">⚙️ Settings</button>
+  </div>
+
+  <!-- BODY -->
+  <div class="ap-body">
+
+    <!-- ======== TAB: GIG IMAGES ======== -->
+    <div id="tab-gig">
+      <div class="ap-badge">● Live — Changes show instantly</div>
+      <div class="ap-section">
+        <div class="ap-section-title">Upload Gig Images</div>
+        <div class="ap-info">Gig section-এ image add করো। Max 6টা image। Click বা drag করে drop করো।</div>
+        <div class="gig-upload-zone" onclick="document.getElementById('gigFileInput').click()">
+          <input type="file" id="gigFileInput" accept="image/*" multiple onchange="handleGigUpload(this)">
+          <div class="gup-icon">📁</div>
+          <div class="gup-txt"><b>Click to Upload</b><br>or drag & drop here<br>JPG, PNG, WEBP — Max 5MB each</div>
+        </div>
+        <div class="gig-preview-list" id="gigPreviews"></div>
+        <button class="ap-save" onclick="saveGigs()" style="margin-top:1rem">💾 Save Gig Images</button>
+      </div>
+    </div>
+
+    <!-- ======== TAB: CONTENT ======== -->
+    <div id="tab-content" style="display:none">
+      <div class="ap-badge">● Edit main text content</div>
+
+      <div class="ap-section">
+        <div class="ap-section-title">🏠 Hero Section</div>
+        <div class="ap-field">
+          <label class="ap-label">Hero Title (Big Text)</label>
+          <input class="ap-input" id="ed-heroTitle" placeholder="Digital Creator">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Hero Tagline (right side)</label>
+          <input class="ap-input" id="ed-heroTagline">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Hero Sub Text</label>
+          <textarea class="ap-input" id="ed-heroSub" rows="2"></textarea>
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Hero Badge Text (Hey, I'm a...)</label>
+          <input class="ap-input" id="ed-heroBadge" placeholder="Hey, I'm a">
+        </div>
+        <button class="ap-save" onclick="saveContent('hero')">💾 Save Hero</button>
+      </div>
+
+      <div class="ap-section">
+        <div class="ap-section-title">👤 About Section</div>
+        <div class="ap-field">
+          <label class="ap-label">Section Label</label>
+          <input class="ap-input" id="ed-aboutLabel" placeholder="Behind the Designs">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">About Title</label>
+          <input class="ap-input" id="ed-aboutTitle">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">About Text (Paragraph 1)</label>
+          <textarea class="ap-input" id="ed-aboutP1" rows="3"></textarea>
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">About Text (Paragraph 2)</label>
+          <textarea class="ap-input" id="ed-aboutP2" rows="3"></textarea>
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Stat Number (e.g. 6+)</label>
+          <input class="ap-input" id="ed-statNum">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Stat Label</label>
+          <input class="ap-input" id="ed-statLabel">
+        </div>
+        <button class="ap-save" onclick="saveContent('about')">💾 Save About</button>
+      </div>
+
+      <div class="ap-section">
+        <div class="ap-section-title">📣 Marquee Text</div>
+        <div class="ap-info">Comma দিয়ে আলাদা করো। উদাহরণ: Digital Product,Brand Identity,Creative Direction</div>
+        <div class="ap-field">
+          <label class="ap-label">Top Marquee (→ direction)</label>
+          <textarea class="ap-input" id="ed-marquee1" rows="2"></textarea>
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Bottom Marquee (← direction)</label>
+          <textarea class="ap-input" id="ed-marquee2" rows="2"></textarea>
+        </div>
+        <button class="ap-save" onclick="saveContent('marquee')">💾 Save Marquee</button>
+      </div>
+
+      <div class="ap-section">
+        <div class="ap-section-title">✉️ Contact Section</div>
+        <div class="ap-field">
+          <label class="ap-label">Contact Title</label>
+          <input class="ap-input" id="ed-ctaTitle">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Contact Sub Text</label>
+          <textarea class="ap-input" id="ed-ctaSub" rows="2"></textarea>
+        </div>
+        <button class="ap-save" onclick="saveContent('contact')">💾 Save Contact</button>
+      </div>
+    </div>
+
+    <!-- ======== TAB: SECTIONS ======== -->
+    <div id="tab-sections" style="display:none">
+      <div class="ap-badge">● Edit all website sections</div>
+
+      <!-- SERVICES accordion -->
+      <div class="acc open" id="acc-svc">
+        <div class="acc-hd" onclick="toggleAcc('acc-svc')">
+          <span class="acc-hd-title">🛠 Services <span class="acc-count">6 items</span></span>
+          <span class="acc-hd-icon">+</span>
+        </div>
+        <div class="acc-body">
+          <div id="svc-editor"><!-- rendered by JS --></div>
+          <button class="ap-save" onclick="saveSvc()">💾 Save Services</button>
+        </div>
+      </div>
+
+      <!-- PRICING accordion -->
+      <div class="acc" id="acc-prc">
+        <div class="acc-hd" onclick="toggleAcc('acc-prc')">
+          <span class="acc-hd-title">💰 Pricing Plans <span class="acc-count">3 plans</span></span>
+          <span class="acc-hd-icon">+</span>
+        </div>
+        <div class="acc-body">
+          <div id="prc-editor"><!-- rendered by JS --></div>
+          <button class="ap-save" onclick="savePrc()">💾 Save Pricing</button>
+        </div>
+      </div>
+
+      <!-- PROCESS accordion -->
+      <div class="acc" id="acc-proc">
+        <div class="acc-hd" onclick="toggleAcc('acc-proc')">
+          <span class="acc-hd-title">🔄 Process Steps <span class="acc-count">5 steps</span></span>
+          <span class="acc-hd-icon">+</span>
+        </div>
+        <div class="acc-body">
+          <div id="proc-editor"><!-- rendered by JS --></div>
+          <button class="ap-save" onclick="saveProc()">💾 Save Process</button>
+        </div>
+      </div>
+
+      <!-- FAQ accordion -->
+      <div class="acc" id="acc-faq">
+        <div class="acc-hd" onclick="toggleAcc('acc-faq')">
+          <span class="acc-hd-title">❓ FAQ <span class="acc-count" id="faq-count">5 items</span></span>
+          <span class="acc-hd-icon">+</span>
+        </div>
+        <div class="acc-body">
+          <div id="faq-editor"><!-- rendered by JS --></div>
+          <button class="faq-add-btn" onclick="addFaqItem()">+ Add New FAQ</button>
+          <button class="ap-save" onclick="saveFaq()" style="margin-top:.6rem">💾 Save FAQ</button>
+        </div>
+      </div>
+
+      <!-- VALUES accordion -->
+      <div class="acc" id="acc-val">
+        <div class="acc-hd" onclick="toggleAcc('acc-val')">
+          <span class="acc-hd-title">💎 Values <span class="acc-count">4 items</span></span>
+          <span class="acc-hd-icon">+</span>
+        </div>
+        <div class="acc-body">
+          <div id="val-editor"><!-- rendered by JS --></div>
+          <button class="ap-save" onclick="saveVal()">💾 Save Values</button>
+        </div>
+      </div>
+
+      <!-- PROJECTS accordion -->
+      <div class="acc" id="acc-proj">
+        <div class="acc-hd" onclick="toggleAcc('acc-proj')">
+          <span class="acc-hd-title">🗂 Projects <span class="acc-count">3 projects</span></span>
+          <span class="acc-hd-icon">+</span>
+        </div>
+        <div class="acc-body">
+          <div id="proj-editor"><!-- rendered by JS --></div>
+          <button class="ap-save" onclick="saveProj()">💾 Save Projects</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== TAB: DESIGN ======== -->
+    <div id="tab-design" style="display:none">
+      <div class="ap-badge">● Real-time color preview</div>
+
+      <div class="ap-section">
+        <div class="ap-section-title">🎨 Color Settings</div>
+        <div class="ap-info">Color পরিবর্তন করলে website-এ তুরন্ত দেখা যাবে। Save করলে সংরক্ষিত হবে।</div>
+
+        <div class="color-row">
+          <label style="position:relative">
+            <div class="color-swatch" id="sw-orange" style="background:#e84c1e"></div>
+            <input type="color" class="color-pick" id="cp-orange" value="#e84c1e" oninput="liveColor('--orange',this.value,'sw-orange')">
+          </label>
+          <div class="color-info">
+            <div class="color-label">Primary / Accent Color</div>
+            <div class="color-val" id="cv-orange">#e84c1e</div>
+          </div>
+          <button class="ap-save-sm" onclick="document.getElementById('cp-orange').click()">Pick</button>
+        </div>
+
+        <div class="color-row">
+          <label style="position:relative">
+            <div class="color-swatch" id="sw-black" style="background:#0a0a0a;border-color:rgba(255,255,255,.2)"></div>
+            <input type="color" class="color-pick" id="cp-black" value="#0a0a0a" oninput="liveColor('--black',this.value,'sw-black')">
+          </label>
+          <div class="color-info">
+            <div class="color-label">Background Color</div>
+            <div class="color-val" id="cv-black">#0a0a0a</div>
+          </div>
+          <button class="ap-save-sm" onclick="document.getElementById('cp-black').click()">Pick</button>
+        </div>
+
+        <div class="color-row">
+          <label style="position:relative">
+            <div class="color-swatch" id="sw-dark" style="background:#111;border-color:rgba(255,255,255,.2)"></div>
+            <input type="color" class="color-pick" id="cp-dark" value="#111111" oninput="liveColor('--dark',this.value,'sw-dark')">
+          </label>
+          <div class="color-info">
+            <div class="color-label">Section Dark Background</div>
+            <div class="color-val" id="cv-dark">#111111</div>
+          </div>
+          <button class="ap-save-sm" onclick="document.getElementById('cp-dark').click()">Pick</button>
+        </div>
+
+        <div class="color-row">
+          <label style="position:relative">
+            <div class="color-swatch" id="sw-card" style="background:#161616;border-color:rgba(255,255,255,.2)"></div>
+            <input type="color" class="color-pick" id="cp-card" value="#161616" oninput="liveColor('--card',this.value,'sw-card')">
+          </label>
+          <div class="color-info">
+            <div class="color-label">Card Background</div>
+            <div class="color-val" id="cv-card">#161616</div>
+          </div>
+          <button class="ap-save-sm" onclick="document.getElementById('cp-card').click()">Pick</button>
+        </div>
+
+        <button class="ap-save" onclick="saveDesign()">💾 Save Colors</button>
+
+        <div style="margin-top:.8rem">
+          <button class="ap-danger" onclick="resetColors()">↺ Reset to Default Colors</button>
+        </div>
+      </div>
+
+      <div class="ap-section">
+        <div class="ap-section-title">📝 Custom CSS</div>
+        <div class="ap-info">Advanced users-এর জন্য। Extra CSS এখানে add করো।</div>
+        <textarea class="ap-input" id="ed-customCss" rows="5" placeholder="/* your custom CSS here */&#10;.hero { ... }"></textarea>
+        <button class="ap-save" onclick="saveCustomCss()">💾 Apply Custom CSS</button>
+      </div>
+    </div>
+
+    <!-- ======== TAB: PAGES ======== -->
+    <div id="tab-pages" style="display:none">
+      <div class="ap-badge">● Facebook & Social Links</div>
+
+      <div class="ap-section">
+        <div class="ap-section-title">📘 Facebook Pages</div>
+        <div class="ap-field">
+          <label class="ap-label">Main Profile URL</label>
+          <input class="ap-input" id="lnk-profile">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">RAJU SAHA Page URL</label>
+          <input class="ap-input" id="lnk-page">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Digital Product – RJ URL</label>
+          <input class="ap-input" id="lnk-dp">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">চব্ঞলা URL</label>
+          <input class="ap-input" id="lnk-chob">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">MR Beast Fan Club URL</label>
+          <input class="ap-input" id="lnk-beast">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Urban Pulse URL</label>
+          <input class="ap-input" id="lnk-urban">
+        </div>
+        <button class="ap-save" onclick="saveContent('pages')">💾 Save Page Links</button>
+      </div>
+
+      <div class="ap-section">
+        <div class="ap-section-title">🌐 Social Links</div>
+        <div class="ap-field">
+          <label class="ap-label">Facebook Social Button URL</label>
+          <input class="ap-input" id="ed-socFb">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Digital Product Button URL</label>
+          <input class="ap-input" id="ed-socDp">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Portfolio Site URL</label>
+          <input class="ap-input" id="ed-portLink">
+        </div>
+        <button class="ap-save" onclick="saveSocials()">💾 Save Social Links</button>
+      </div>
+    </div>
+
+    <!-- ======== TAB: SETTINGS ======== -->
+    <div id="tab-settings" style="display:none">
+      <div class="ap-badge">● System Settings</div>
+
+      <div class="ap-section">
+        <div class="ap-section-title">🏷 Site Info</div>
+        <div class="ap-field">
+          <label class="ap-label">Site / Brand Name</label>
+          <input class="ap-input" id="ed-siteName">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Page Title (Browser Tab)</label>
+          <input class="ap-input" id="ed-pageTitle">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Footer Tagline</label>
+          <textarea class="ap-input" id="ed-footerTag" rows="2"></textarea>
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Copyright Text</label>
+          <input class="ap-input" id="ed-copyright">
+        </div>
+        <button class="ap-save" onclick="saveContent('settings')">💾 Save Site Info</button>
+      </div>
+
+      <div class="ap-section">
+        <div class="ap-section-title">🧭 Navigation Links</div>
+        <div class="ap-info">Nav bar-এর links পরিবর্তন করো।</div>
+        <div id="nav-editor"><!-- rendered by JS --></div>
+        <button class="ap-save" onclick="saveNav()">💾 Save Nav Links</button>
+      </div>
+
+      <div class="ap-section">
+        <div class="ap-section-title">🔐 Change Password</div>
+        <div class="ap-field">
+          <label class="ap-label">Current Password</label>
+          <input class="ap-input" type="password" id="pw-current" placeholder="Enter current password">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">New Password</label>
+          <input class="ap-input" type="password" id="pw-new" placeholder="Enter new password">
+        </div>
+        <div class="ap-field">
+          <label class="ap-label">Confirm New Password</label>
+          <input class="ap-input" type="password" id="pw-confirm" placeholder="Confirm new password">
+        </div>
+        <div class="modal-err" id="pw-err" style="margin-bottom:.5rem">Error message here</div>
+        <button class="ap-save" onclick="changePassword()">🔐 Update Password</button>
+      </div>
+
+      <div class="ap-section">
+        <div class="ap-section-title" style="color:#fca5a5;border-color:rgba(220,38,38,.2)">⚠️ Danger Zone</div>
+        <div class="ap-info">এই button click করলে সব saved data delete হয়ে যাবে এবং default content ফিরে আসবে।</div>
+        <button class="ap-danger" onclick="resetAll()">🗑️ Reset All Changes to Default</button>
+      </div>
+    </div>
+
+  </div><!-- /ap-body -->
+
+  <div class="ap-logout-bar">
+    <span>Logged in as <b style="color:rgba(255,255,255,.6)" id="loggedInName">Raju Saha</b></span>
+    <button class="ap-logout" onclick="doLogout()">Logout →</button>
+  </div>
+</div><!-- /admin-panel -->
+
+<!-- Admin Floating Button -->
+<button class="admin-float" id="adminFloatBtn" onclick="openAdminOrLogin()" title="Admin Panel">⚙</button>
+
+<!-- ============ WEBSITE ============ -->
+<nav id="mainNav">
+  <a href="#" class="nl" id="navBrand">Raju Saha<sup>®</sup></a>
+  <ul id="navLinks">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+  <a href="#contact" class="ncta">✉ Get in Touch</a>
+  <button class="hbg">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hbg2"></div>
+  <div class="hperson"></div>
+  <div class="hright">
+    <p class="htagline" id="heroTagline">Great design should feel invisible.</p>
+    <p class="hsub" id="heroSub">From logo to language, I build brands that connect and convert.</p>
+  </div>
+  <div class="hey rv" id="heroBadge">Hey, I'm a</div>
+  <h1 class="htitle rv" id="heroTitle">Digital<br>Creator</h1>
+  <div class="hsvcs rv">
+    <div class="hsvc"><span class="sn">01</span><span class="snm">Brand Strategy</span></div>
+    <div class="hsvc"><span class="sn">02</span><span class="snm">Brand Identity Design</span></div>
+    <div class="hsvc"><span class="sn">03</span><span class="snm">Packaging Design</span></div>
+    <div class="hsvc"><span class="sn">04</span><span class="snm">Creative Direction</span></div>
+  </div>
+  <div class="shi"><div class="shl"></div><span class="sht">Scroll</span></div>
+</section>
+
+<!-- MARQUEE 1 -->
+<div class="mwrap">
+  <div class="mt" id="marquee1"></div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="sl" id="aboutLabel">Behind the Designs</div>
+  <div class="agrid">
+    <div>
+      <h2 class="atitle rv" id="aboutTitle">Shaping Experiences That Make Life <em>Simpler</em></h2>
+      <p class="atxt rv" id="aboutP1">I'm Raju Saha — a digital creator and product designer focused on building brands that don't just look beautiful, they work. Every decision rooted in purpose, every pixel placed with intention.</p>
+      <p class="atxt rv" id="aboutP2">Running multiple Facebook pages including Digital Product – RJ, Urban Pulse, and MR Beast Fan Club — I understand what makes content connect and communities grow.</p>
+      <a href="#contact" class="ctal rv">Get in Touch</a>
+    </div>
+    <div class="aphotos rv">
+      <div class="pm"><div class="pi">Portfolio Showcase</div></div>
+      <div class="ps"><div class="pi">Detail Work</div></div>
+      <div class="sc">
+        <span class="scn" id="statNum">6+</span>
+        <span class="scl" id="statLabel">Active Pages</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- B&W PHOTO GRID -->
+<div class="pgrid">
+  <div class="pgi rv"><div class="pgii"></div><span class="pgl">Digital Work</span></div>
+  <div class="pgi rv"><div class="pgii"></div><span class="pgl">Brand Identity</span></div>
+  <div class="pgi rv"><div class="pgii"></div><span class="pgl">Creative Direction</span></div>
+</div>
+
+<!-- PROJECTS -->
+<section class="sec" id="projects" style="padding-top:0">
+  <div class="sl">Featured Projects</div>
+  <div class="ph rv">
+    <h2 class="ptit">Designing Bold Brands That Leave a Lasting Impression</h2>
+    <a href="https://www.facebook.com/digitalproductrj/" target="_blank" class="ctal" id="projViewAll" style="flex-shrink:0">View All Work</a>
+  </div>
+  <div class="pgr rv" id="projGrid"><!-- rendered by JS --></div>
+</section>
+
+<!-- GIG SECTION -->
+<section class="gig-section" id="gigs">
+  <div class="sl">My Gigs</div>
+  <div class="rv" style="margin-bottom:1rem">
+    <h2 class="ptit" style="max-width:600px">Services I Offer — Browse My <em style="font-style:italic;color:var(--orange)">Gigs</em></h2>
+  </div>
+  <div class="gig-grid rv" id="gigGrid"><!-- Filled dynamically --></div>
+</section>
+
+<!-- MARQUEE 2 -->
+<div class="mwrap">
+  <div class="mt" style="animation-direction:reverse;animation-duration:20s" id="marquee2"></div>
+</div>
+
+<!-- SERVICES -->
+<section class="svcsec" id="services">
+  <div class="sl">Services</div>
+  <div class="svgrid rv" id="svcGrid"><!-- rendered by JS --></div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" id="process">
+  <div class="sl">Step-by-Step</div>
+  <h2 class="ptit rv" style="margin-bottom:2.5rem">My Process,<br>Step by Step</h2>
+  <div class="proclist rv" id="procList"><!-- rendered by JS --></div>
+</section>
+
+<!-- PRICING -->
+<section class="prcsec" id="pricing">
+  <div class="sl">Pricing</div>
+  <h2 class="ptit rv">Simple Packages for Every Stage</h2>
+  <div class="prcgrid rv" id="prcGrid"><!-- rendered by JS --></div>
+</section>
+
+<!-- VALUES -->
+<section class="sec">
+  <div class="sl">Values</div>
+  <h2 class="ptit rv">My Core Values</h2>
+  <div class="vgrid rv" id="valGrid"><!-- rendered by JS --></div>
+</section>
+
+<!-- FAQ -->
+<section class="faqsec" id="faq">
+  <div class="sl">Frequently Asked</div>
+  <h2 class="ptit rv">Answers to Common Questions</h2>
+  <div class="faqlist rv" id="faqList"><!-- rendered by JS --></div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="sl">Contact Me</div>
+  <div class="cwrap">
+    <h2 class="ctit rv" id="contactTitle">Let's Create Something <em>Meaningful</em></h2>
+    <p class="csub rv" id="contactSub">Whether starting from scratch or refreshing your brand — fill out the form or message me directly.</p>
+    <form class="cform rv" onsubmit="handleForm(event)">
+      <div class="fg"><label class="flbl">First Name</label><input type="text" class="finp" placeholder="Tony"></div>
+      <div class="fg"><label class="flbl">Last Name</label><input type="text" class="finp" placeholder="Montana"></div>
+      <div class="fg full"><label class="flbl">Email</label><input type="email" class="finp" placeholder="hello@domain.com"></div>
+      <div class="fg full"><label class="flbl">Message</label><textarea class="finp" placeholder="Tell me about your project..."></textarea></div>
+      <button type="submit" class="sbtn">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <span class="flogo" id="footerLogo">Raju Saha<sup>®</sup></span>
+    <p class="ftag" id="footerTag">Great design should feel invisible. I build brands that connect and convert.</p>
+    <div class="socs">
+      <a href="#" target="_blank" class="socbtn" id="socFb">fb</a>
+      <a href="#" target="_blank" class="socbtn" id="socDp">dp</a>
+      <a href="#" target="_blank" class="socbtn" id="socPort">🌐</a>
+    </div>
+  </div>
+  <div class="fcol"><h4>Menu</h4><ul class="flinks"><li><a href="#">Home</a></li><li><a href="#about">About</a></li><li><a href="#gigs">Gigs</a></li><li><a href="#services">Services</a></li><li><a href="#pricing">Pricing</a></li></ul></div>
+  <div class="fcol"><h4>My Pages</h4><ul class="flinks" id="footerPages">
+    <li><a href="#" target="_blank" id="fp-dp">Digital Product – RJ</a></li>
+    <li><a href="#" target="_blank" id="fp-beast">MR Beast Fan Club</a></li>
+    <li><a href="#" target="_blank" id="fp-chob">চব্ঞলা</a></li>
+    <li><a href="#" target="_blank" id="fp-urban">Urban Pulse</a></li>
+  </ul></div>
+  <div class="fcol"><h4>Contact</h4><ul class="flinks">
+    <li><a href="#" target="_blank" id="fl-profile">Facebook Profile</a></li>
+    <li><a href="#" target="_blank" id="fl-port">Portfolio Site</a></li>
+    <li><a href="#contact">Send Message</a></li>
+  </ul></div>
+</footer>
+<div class="fbot">
+  <span class="fcopy" id="footerCopy">© Copyright Raju Saha® 2025. All rights reserved.</span>
+  <span class="fcopy">Digital Creator · Brand Builder</span>
+</div>
+
+<!-- Custom CSS injection point -->
+<style id="customCssTag"></style>
+
+<script>
+// ========== CONSTANTS & DEFAULTS ==========
+const STORAGE_KEY = 'raju_admin_v2';
+const DEFAULT_PASS = 'Raju@saha#@06';
+
+const DEFAULTS = {
+  heroTitle:'Digital\nCreator',
+  heroTagline:'Great design should feel invisible.',
+  heroSub:'From logo to language, I build brands that connect and convert.',
+  heroBadge:"Hey, I'm a",
+  aboutLabel:'Behind the Designs',
+  aboutTitle:'Shaping Experiences That Make Life Simpler',
+  aboutP1:"I'm Raju Saha — a digital creator and product designer focused on building brands that don't just look beautiful, they work. Every decision rooted in purpose, every pixel placed with intention.",
+  aboutP2:"Running multiple Facebook pages including Digital Product – RJ, Urban Pulse, and MR Beast Fan Club — I understand what makes content connect and communities grow.",
+  statNum:'6+', statLabel:'Active Pages',
+  ctaTitle:"Let's Create Something Meaningful",
+  ctaSub:'Whether starting from scratch or refreshing your brand — fill out the form or message me directly.',
+  marquee1:'Digital Product,Brand Identity,Creative Direction,Visual Strategy,Content Creator,Urban Pulse',
+  marquee2:'Raju Saha,চব্ঞলা,MR Beast Fan Club,Urban Pulse,Digital Creator,Brand Builder',
+  footerTag:'Great design should feel invisible. I build brands that connect and convert.',
+  siteName:'Raju Saha®',
+  pageTitle:'Raju Saha® — Digital Creator',
+  copyright:'© Copyright Raju Saha® 2025. All rights reserved.',
+  lnkProfile:'https://www.facebook.com/profile.php?id=61585248757456',
+  lnkPage:'https://www.facebook.com/profile.php?id=61562135946381',
+  lnkDp:'https://www.facebook.com/digitalproductrj/',
+  lnkChob:'https://www.facebook.com/rajdeb7756/',
+  lnkBeast:'https://www.facebook.com/profile.php?id=61560799855146',
+  lnkUrban:'https://www.facebook.com/profile.php?id=61585248757456',
+  socFb:'https://www.facebook.com/profile.php?id=61585248757456',
+  socDp:'https://www.facebook.com/digitalproductrj/',
+  portLink:'https://rajsaharaju.github.io/raju-portfolio/',
+  colorOrange:'#e84c1e', colorBlack:'#0a0a0a', colorDark:'#111111', colorCard:'#161616',
+  customCss:'',
+  navLinks:[
+    {label:'Projects',href:'#projects'},{label:'Services',href:'#services'},
+    {label:'Process',href:'#process'},{label:'Pricing',href:'#pricing'}
+  ],
+  svc:[
+    {num:'01',name:'Brand Identity Design',desc:'Logos, typography, color systems, complete visual direction and brand storytelling.'},
+    {num:'02',name:'Brand Strategy',desc:'Positioning, messaging, and creative direction aligned with your goals.'},
+    {num:'03',name:'Creative Consulting',desc:'Ongoing design support, art direction, and guidance for your brand team.'},
+    {num:'04',name:'Digital Product',desc:'Digital products, tools, and resources crafted for maximum impact and reach.'},
+    {num:'05',name:'Content Creation',desc:'Engaging content for Facebook pages and social media that grows communities.'},
+    {num:'06',name:'Page Management',desc:'Full management and growth strategy for Facebook pages and online communities.'}
+  ],
+  pricing:[
+    {type:'Basic Plan',price:'1,990',period:'/ Monthly',featured:false,features:['Basic brand consultation','Access to design resources','One revision on initial concept','Basic chat and support']},
+    {type:'Pro Plan',price:'2,990',period:'/ Monthly',featured:true,features:['Full brand identity design','UI/UX design for web or app','Up to three revisions','Brand guidelines & assets']},
+    {type:'Enterprise',price:'4,990',period:'/ Monthly',featured:false,features:['Custom brand strategy & identity','Digital experience design','Unlimited revisions','Priority support']}
+  ],
+  process:[
+    {num:'01',name:'Discovery',desc:'Understanding your vision, audience, and goals deeply before touching any tool.'},
+    {num:'02',name:'Strategy',desc:'Defining your unique positioning and messaging framework that guides everything.'},
+    {num:'03',name:'Design',desc:'Creating your visual identity system and all brand touchpoints with precision.'},
+    {num:'04',name:'Delivery',desc:'Providing all assets, brand guidelines, and comprehensive support documentation.'},
+    {num:'05',name:'Ongoing Support',desc:'Available for updates, extensions, and evolution as your brand grows.'}
+  ],
+  faq:[
+    {q:'How long does a brand project take?',a:'Typically 3–6 weeks depending on scope. I ensure a smooth, collaborative process so you feel confident at every stage.'},
+    {q:'Do you offer payment plans?',a:'Yes! Most projects split into 2–3 installments. I understand brand investment is a big step and want to make it accessible.'},
+    {q:'Can you manage my Facebook pages?',a:'Absolutely. I currently manage multiple Facebook pages including Digital Product – RJ, Urban Pulse and MR Beast Fan Club with proven growth results.'},
+    {q:'Do you work with international clients?',a:'Yes — I work with clients worldwide through digital collaboration tools. Location is never a barrier.'},
+    {q:'What do I need to get started?',a:"Just a quick discovery call or questionnaire about your vision and goals. From there I'll guide you every step of the way."}
+  ],
+  values:[
+    {label:'Mission',name:'Purpose-Driven Design',text:'To help brands express their unique voice with clarity and beauty — making complex ideas feel effortlessly simple.'},
+    {label:'Vision',name:'Meaningful Connections',text:'A world where thoughtful design drives meaningful connections between brands and the people they serve.'},
+    {label:'Values',name:'Simplicity & Empathy',text:'Simplicity, empathy, creativity, and strategic thinking are at the core of everything I create.'},
+    {label:'Philosophy',name:'Invisible Excellence',text:"Good design solves problems and tells stories that stick. The best design feels so natural you never question it."}
+  ],
+  projects:[
+    {name:'Digital Product – RJ',tags:['Branding','Content','Strategy'],url:'https://www.facebook.com/digitalproductrj/'},
+    {name:'Urban Pulse',tags:['Page','Design'],url:'#'},
+    {name:'MR Beast Fan Club',tags:['Community','Direction'],url:'#'}
+  ]
+};
+
+// ========== STATE ==========
+let isLoggedIn = false;
+let gigImages = [];
+
+// ========== STORAGE ==========
+function getData(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{}}catch{return{}} }
+function setData(obj){ const d=getData(); localStorage.setItem(STORAGE_KEY,JSON.stringify({...d,...obj})); }
+function getVal(key){ const d=getData(); return d[key]!==undefined?d[key]:DEFAULTS[key]; }
+
+// ========== PASSWORD ==========
+function getPass(){ return getData().adminPass||DEFAULT_PASS; }
+
+// ========== CURSOR ==========
+const cur=document.getElementById('cur');
+let mx=0,my=0,cx=0,cy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function anim(){cx+=(mx-cx)*.14;cy+=(my-cy)*.14;cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(anim)})();
+
+// ========== SCROLL REVEAL ==========
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*60);obs.unobserve(e.target)}});
+},{threshold:.1});
+
+// ========== FAQ ACCORDION ==========
+function initFaqAccordion(){
+  document.querySelectorAll('.faqq').forEach(q=>{
+    q.onclick=()=>{
+      const item=q.parentElement,open=item.classList.contains('open');
+      document.querySelectorAll('.faqitem').forEach(i=>i.classList.remove('open'));
+      if(!open)item.classList.add('open');
+    };
+  });
+}
+
+// ========== FORM ==========
+function handleForm(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.sbtn');
+  btn.textContent='Message Sent! ✓';btn.style.background='#22c55e';
+  setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';e.target.reset()},3000);
+}
+
+// ========== TOAST ==========
+function showSave(msg){
+  const el=document.getElementById('saveOk');
+  el.textContent='✓ '+(msg||'Changes Saved!');
+  el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),2800);
+}
+
+// ========== ADMIN LOGIN ==========
+function openAdminOrLogin(){
+  if(isLoggedIn){toggleAdmin()}
+  else{document.getElementById('loginModal').classList.add('show');setTimeout(()=>document.getElementById('pwInput').focus(),100)}
+}
+function closeLogin(){
+  document.getElementById('loginModal').classList.remove('show');
+  document.getElementById('pwInput').value='';
+  document.getElementById('loginErr').classList.remove('show');
+}
+function doLogin(){
+  const val=document.getElementById('pwInput').value;
+  if(val===getPass()){
+    isLoggedIn=true;closeLogin();openAdmin();loadAllEditors();
+  } else {
+    document.getElementById('loginErr').classList.add('show');
+    document.getElementById('pwInput').value='';
+    document.getElementById('pwInput').focus();
+  }
+}
+function doLogout(){isLoggedIn=false;closeAdmin();showSave('Logged out!');}
+function openAdmin(){document.getElementById('adminPanel').classList.add('open')}
+function closeAdmin(){document.getElementById('adminPanel').classList.remove('open')}
+function toggleAdmin(){document.getElementById('adminPanel').classList.toggle('open')}
+
+// ========== TABS ==========
+function setTab(name,btn){
+  ['gig','content','sections','design','pages','settings'].forEach(t=>{
+    document.getElementById('tab-'+t).style.display='none';
+  });
+  document.getElementById('tab-'+name).style.display='block';
+  document.querySelectorAll('.ap-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ========== ACCORDION ==========
+function toggleAcc(id){
+  const el=document.getElementById(id);
+  el.classList.toggle('open');
+}
+
+// ========== APPLY ALL CONTENT (on page load) ==========
+function applyAll(){
+  // Hero
+  const ht=getVal('heroTitle');
+  document.getElementById('heroTitle').innerHTML=ht.replace(/\n/g,'<br>');
+  document.getElementById('heroTagline').textContent=getVal('heroTagline');
+  document.getElementById('heroSub').textContent=getVal('heroSub');
+  document.getElementById('heroBadge').textContent=getVal('heroBadge');
+  // About
+  document.getElementById('aboutLabel').textContent=getVal('aboutLabel');
+  const at=getVal('aboutTitle');
+  document.getElementById('aboutTitle').innerHTML=at;
+  document.getElementById('aboutP1').textContent=getVal('aboutP1');
+  document.getElementById('aboutP2').textContent=getVal('aboutP2');
+  document.getElementById('statNum').textContent=getVal('statNum');
+  document.getElementById('statLabel').textContent=getVal('statLabel');
+  // Contact
+  document.getElementById('contactSub').textContent=getVal('ctaSub');
+  // Footer
+  document.getElementById('footerTag').textContent=getVal('footerTag');
+  document.getElementById('footerCopy').textContent=getVal('copyright');
+  document.getElementById('pageTitle').textContent=getVal('pageTitle');
+  document.title=getVal('pageTitle');
+  // Socials
+  document.getElementById('socFb').href=getVal('socFb');
+  document.getElementById('socDp').href=getVal('socDp');
+  document.getElementById('socPort').href=getVal('portLink');
+  document.getElementById('fl-port').href=getVal('portLink');
+  document.getElementById('fl-profile').href=getVal('lnkProfile');
+  // Page links
+  document.getElementById('fp-dp').href=getVal('lnkDp');
+  document.getElementById('fp-beast').href=getVal('lnkBeast');
+  document.getElementById('fp-chob').href=getVal('lnkChob');
+  document.getElementById('fp-urban').href=getVal('lnkUrban');
+  // Colors
+  applyColors();
+  // Custom CSS
+  document.getElementById('customCssTag').textContent=getVal('customCss');
+  // Dynamic renders
+  renderMarquee();
+  renderNav();
+  renderServices();
+  renderPricing();
+  renderProcess();
+  renderFAQ();
+  renderValues();
+  renderProjects();
+  renderGigGrid();
+}
+
+// ========== COLORS ==========
+function applyColors(){
+  const r=document.documentElement.style;
+  r.setProperty('--orange',getVal('colorOrange'));
+  r.setProperty('--black',getVal('colorBlack'));
+  r.setProperty('--dark',getVal('colorDark'));
+  r.setProperty('--card',getVal('colorCard'));
+  // Also set hero background to match
+  const hbg=document.querySelector('.hbg2');
+  if(hbg){
+    const c=getVal('colorOrange');
+    hbg.style.background=`radial-gradient(ellipse 70% 90% at 60% 30%,${c}99 0%,${c}55 40%,transparent 75%),radial-gradient(ellipse 40% 60% at 80% 60%,${c}44 0%,transparent 60%),${getVal('colorBlack')}`;
+  }
+}
+function liveColor(varName,val,swatchId){
+  document.documentElement.style.setProperty(varName,val);
+  document.getElementById(swatchId).style.background=val;
+  const cvId=swatchId.replace('sw-','cv-');
+  if(document.getElementById(cvId))document.getElementById(cvId).textContent=val;
+  // live update hero bg too if orange changes
+  if(varName==='--orange'){
+    const hbg=document.querySelector('.hbg2');
+    if(hbg)hbg.style.background=`radial-gradient(ellipse 70% 90% at 60% 30%,${val}99 0%,${val}55 40%,transparent 75%),radial-gradient(ellipse 40% 60% at 80% 60%,${val}44 0%,transparent 60%),${getVal('colorBlack')}`;
+  }
+}
+function saveDesign(){
+  setData({
+    colorOrange:document.getElementById('cp-orange').value,
+    colorBlack:document.getElementById('cp-black').value,
+    colorDark:document.getElementById('cp-dark').value,
+    colorCard:document.getElementById('cp-card').value
+  });
+  showSave('Colors saved!');
+}
+function resetColors(){
+  if(!confirm('Default colors-এ ফিরে যাবে?'))return;
+  setData({colorOrange:DEFAULTS.colorOrange,colorBlack:DEFAULTS.colorBlack,colorDark:DEFAULTS.colorDark,colorCard:DEFAULTS.colorCard});
+  applyColors();loadDesignTab();showSave('Colors reset!');
+}
+function saveCustomCss(){
+  const css=document.getElementById('ed-customCss').value;
+  setData({customCss:css});
+  document.getElementById('customCssTag').textContent=css;
+  showSave('Custom CSS applied!');
+}
+
+// ========== MARQUEE ==========
+function renderMarquee(){
+  const m1=getVal('marquee1').split(',').map(s=>s.trim()).filter(Boolean);
+  const m2=getVal('marquee2').split(',').map(s=>s.trim()).filter(Boolean);
+  const buildM=(items)=>{
+    const doubled=[...items,...items];
+    return doubled.map(s=>`<div class="mi">${s}<span class="md"></span></div>`).join('');
+  };
+  document.getElementById('marquee1').innerHTML=buildM(m1);
+  document.getElementById('marquee2').innerHTML=buildM(m2);
+}
+
+// ========== NAV ==========
+function renderNav(){
+  const links=getVal('navLinks');
+  document.getElementById('navLinks').innerHTML=links.map(l=>`<li><a href="${l.href}">${l.label}</a></li>`).join('');
+  document.querySelectorAll('#navLinks a').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cur.classList.add('big'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
+  });
+}
+
+// ========== SERVICES ==========
+function renderServices(){
+  const svcs=getVal('svc');
+  document.getElementById('svcGrid').innerHTML=svcs.map(s=>`
+    <div class="svi">
+      <span class="svn">${s.num}</span>
+      <h3 class="svnm">${s.name}</h3>
+      <p class="svd">${s.desc}</p>
+    </div>`).join('');
+}
+
+// ========== PRICING ==========
+function renderPricing(){
+  const plans=getVal('pricing');
+  document.getElementById('prcGrid').innerHTML=plans.map(p=>`
+    <div class="prcc${p.featured?' feat':''}">
+      <div class="prct">${p.type}</div>
+      <div class="prcv"><span class="prccur">$</span>${p.price}</div>
+      <div class="prcp">${p.period}</div>
+      <ul class="prcf">${p.features.map(f=>`<li class="prcfi">${f}</li>`).join('')}</ul>
+      <a href="#contact" class="prcbtn">Get Started</a>
+    </div>`).join('');
+}
+
+// ========== PROCESS ==========
+function renderProcess(){
+  const steps=getVal('process');
+  document.getElementById('procList').innerHTML=steps.map(s=>`
+    <div class="proci">
+      <span class="procb">${s.num}</span>
+      <h3 class="procn">${s.name}</h3>
+      <p class="procd">${s.desc}</p>
+    </div>`).join('');
+}
+
+// ========== FAQ ==========
+function renderFAQ(){
+  const faqs=getVal('faq');
+  document.getElementById('faqList').innerHTML=faqs.map(f=>`
+    <div class="faqitem">
+      <div class="faqq">${f.q} <span class="faqicon">+</span></div>
+      <div class="faqa">${f.a}</div>
+    </div>`).join('');
+  initFaqAccordion();
+  // update count badge
+  const el=document.getElementById('faq-count');
+  if(el)el.textContent=faqs.length+' items';
+}
+
+// ========== VALUES ==========
+function renderValues(){
+  const vals=getVal('values');
+  document.getElementById('valGrid').innerHTML=vals.map(v=>`
+    <div class="vi">
+      <div class="vl">${v.label}</div>
+      <h3 class="vn">${v.name}</h3>
+      <p class="vt">${v.text}</p>
+    </div>`).join('');
+}
+
+// ========== PROJECTS ==========
+function renderProjects(){
+  const projs=getVal('projects');
+  const colors=['p1','p2','p3'];
+  document.getElementById('projGrid').innerHTML=projs.map((p,i)=>`
+    <div class="pc" ${i===0?'':''}>
+      <div class="pci ${colors[i]||'p1'}"></div>
+      <span class="pnum">0${i+1} / 0${projs.length}</span>
+      <div class="pinfo">
+        <h3 class="pn">${p.name}</h3>
+        <div class="ptags">${p.tags.map(t=>`<span class="ptag">${t}</span>`).join('')}</div>
+      </div>
+    </div>`).join('');
+  // first project spans 2 cols
+  const firstPc=document.querySelector('#projGrid .pc');
+  if(firstPc)firstPc.style.gridColumn='span 2';
+  document.querySelectorAll('#projGrid .pc').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cur.classList.add('big'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
+  });
+}
+
+// ========== GIG GRID ==========
+function renderGigGrid(){
+  const grid=document.getElementById('gigGrid');
+  if(!gigImages||gigImages.length===0){
+    grid.innerHTML=`
+      <div class="gig-card"><div class="gig-empty"><div class="gig-empty-icon">🖼</div><div class="gig-empty-txt">Upload from Admin Panel</div></div></div>
+      <div class="gig-card"><div class="gig-empty"><div class="gig-empty-icon">📁</div><div class="gig-empty-txt">Your gig image here</div></div></div>
+      <div class="gig-card"><div class="gig-empty"><div class="gig-empty-icon">✨</div><div class="gig-empty-txt">Add via Admin → Gigs</div></div></div>`;
+    return;
+  }
+  grid.innerHTML=gigImages.map((g,i)=>`
+    <div class="gig-card">
+      <img src="${g.src}" alt="${g.name||'Gig '+i}" loading="lazy">
+      <div class="gig-overlay">
+        <div class="gig-name">${g.name||'Gig '+(i+1)}</div>
+        <div class="gig-desc">${g.desc||'Digital Service'}</div>
+      </div>
+    </div>`).join('');
+}
+function renderAdminPreviews(){
+  const list=document.getElementById('gigPreviews');
+  if(!gigImages||gigImages.length===0){list.innerHTML='';return;}
+  list.innerHTML=gigImages.map((g,i)=>`
+    <div class="gig-prev-item">
+      <img class="gig-prev-thumb" src="${g.src}" alt="">
+      <div class="gig-prev-info">
+        <div class="gig-prev-name">${g.name||'Image '+(i+1)}</div>
+        <div class="gig-input-row">
+          <input class="ap-input" style="font-size:.7rem;padding:.35rem .5rem" placeholder="Gig Title" value="${g.name||''}" oninput="gigImages[${i}].name=this.value;renderGigGrid()">
+          <input class="ap-input" style="font-size:.7rem;padding:.35rem .5rem" placeholder="Sub Label" value="${g.desc||''}" oninput="gigImages[${i}].desc=this.value;renderGigGrid()">
+        </div>
+      </div>
+      <button class="gig-prev-del" onclick="removeGig(${i})">✕</button>
+    </div>`).join('');
+}
+function handleGigUpload(input){
+  const files=Array.from(input.files);
+  if(gigImages.length+files.length>6){alert('Maximum 6 images!');return;}
+  files.forEach(file=>{
+    if(file.size>5*1024*1024){alert(file.name+' too large (max 5MB)');return;}
+    const reader=new FileReader();
+    reader.onload=e=>{gigImages.push({src:e.target.result,name:'',desc:''});renderAdminPreviews();renderGigGrid();};
+    reader.readAsDataURL(file);
+  });
+  input.value='';
+}
+function removeGig(i){gigImages.splice(i,1);renderAdminPreviews();renderGigGrid();}
+function saveGigs(){setData({gigImages});showSave('Gig images saved!');}
+
+// ========== LOAD ALL EDITORS ==========
+function loadAllEditors(){
+  // Hero
+  document.getElementById('ed-heroTitle').value=getVal('heroTitle');
+  document.getElementById('ed-heroTagline').value=getVal('heroTagline');
+  document.getElementById('ed-heroSub').value=getVal('heroSub');
+  document.getElementById('ed-heroBadge').value=getVal('heroBadge');
+  // About
+  document.getElementById('ed-aboutLabel').value=getVal('aboutLabel');
+  document.getElementById('ed-aboutTitle').value=getVal('aboutTitle');
+  document.getElementById('ed-aboutP1').value=getVal('aboutP1');
+  document.getElementById('ed-aboutP2').value=getVal('aboutP2');
+  document.getElementById('ed-statNum').value=getVal('statNum');
+  document.getElementById('ed-statLabel').value=getVal('statLabel');
+  // Marquee
+  document.getElementById('ed-marquee1').value=getVal('marquee1');
+  document.getElementById('ed-marquee2').value=getVal('marquee2');
+  // Contact
+  document.getElementById('ed-ctaTitle').value=getVal('ctaTitle');
+  document.getElementById('ed-ctaSub').value=getVal('ctaSub');
+  // Pages
+  document.getElementById('lnk-profile').value=getVal('lnkProfile');
+  document.getElementById('lnk-page').value=getVal('lnkPage');
+  document.getElementById('lnk-dp').value=getVal('lnkDp');
+  document.getElementById('lnk-chob').value=getVal('lnkChob');
+  document.getElementById('lnk-beast').value=getVal('lnkBeast');
+  document.getElementById('lnk-urban').value=getVal('lnkUrban');
+  // Socials
+  document.getElementById('ed-socFb').value=getVal('socFb');
+  document.getElementById('ed-socDp').value=getVal('socDp');
+  document.getElementById('ed-portLink').value=getVal('portLink');
+  // Settings
+  document.getElementById('ed-siteName').value=getVal('siteName');
+  document.getElementById('ed-pageTitle').value=getVal('pageTitle');
+  document.getElementById('ed-footerTag').value=getVal('footerTag');
+  document.getElementById('ed-copyright').value=getVal('copyright');
+  // Gigs
+  gigImages=getVal('gigImages')||[];
+  renderAdminPreviews();
+  // Sections editors
+  loadSvcEditor();
+  loadPrcEditor();
+  loadProcEditor();
+  loadFaqEditor();
+  loadValEditor();
+  loadProjEditor();
+  // Design
+  loadDesignTab();
+  // Nav
+  loadNavEditor();
+  // Custom CSS
+  document.getElementById('ed-customCss').value=getVal('customCss');
+}
+
+function loadDesignTab(){
+  const co=getVal('colorOrange'),cb=getVal('colorBlack'),cd=getVal('colorDark'),cc=getVal('colorCard');
+  document.getElementById('cp-orange').value=co; document.getElementById('sw-orange').style.background=co; document.getElementById('cv-orange').textContent=co;
+  document.getElementById('cp-black').value=cb; document.getElementById('sw-black').style.background=cb; document.getElementById('cv-black').textContent=cb;
+  document.getElementById('cp-dark').value=cd; document.getElementById('sw-dark').style.background=cd; document.getElementById('cv-dark').textContent=cd;
+  document.getElementById('cp-card').value=cc; document.getElementById('sw-card').style.background=cc; document.getElementById('cv-card').textContent=cc;
+}
+
+// ========== SECTIONS EDITORS ==========
+function loadSvcEditor(){
+  const svcs=getVal('svc');
+  document.getElementById('svc-editor').innerHTML=svcs.map((s,i)=>`
+    <div class="item-card">
+      <div class="item-card-num">Service ${s.num}</div>
+      <div class="ap-field"><label class="ap-label">Title</label><input class="ap-input" id="svc-${i}-name" value="${s.name}"></div>
+      <div class="ap-field"><label class="ap-label">Description</label><textarea class="ap-input" id="svc-${i}-desc" rows="2">${s.desc}</textarea></div>
+    </div>`).join('');
+}
+function saveSvc(){
+  const svcs=getVal('svc').map((s,i)=>({...s,name:document.getElementById('svc-'+i+'-name').value,desc:document.getElementById('svc-'+i+'-desc').value}));
+  setData({svc:svcs});renderServices();showSave('Services saved!');
+}
+
+function loadPrcEditor(){
+  const plans=getVal('pricing');
+  document.getElementById('prc-editor').innerHTML=plans.map((p,i)=>`
+    <div class="item-card">
+      <div class="item-card-num">${p.featured?'⭐ Featured Plan':'Plan '+(i+1)}</div>
+      <div class="item-card-row">
+        <div class="ap-field"><label class="ap-label">Plan Name</label><input class="ap-input" id="prc-${i}-type" value="${p.type}"></div>
+        <div class="ap-field"><label class="ap-label">Price (no $)</label><input class="ap-input" id="prc-${i}-price" value="${p.price}"></div>
+      </div>
+      <div class="item-card-row">
+        <div class="ap-field"><label class="ap-label">Period</label><input class="ap-input" id="prc-${i}-period" value="${p.period}"></div>
+        <div class="ap-field"><label class="ap-label">Featured?</label><select class="ap-input" id="prc-${i}-feat"><option value="0" ${!p.featured?'selected':''}>No</option><option value="1" ${p.featured?'selected':''}>Yes</option></select></div>
+      </div>
+      <div class="ap-field"><label class="ap-label">Features (one per line)</label><textarea class="ap-input" id="prc-${i}-feat-list" rows="4">${p.features.join('\n')}</textarea></div>
+    </div>`).join('');
+}
+function savePrc(){
+  const plans=getVal('pricing').map((p,i)=>({
+    type:document.getElementById('prc-'+i+'-type').value,
+    price:document.getElementById('prc-'+i+'-price').value,
+    period:document.getElementById('prc-'+i+'-period').value,
+    featured:document.getElementById('prc-'+i+'-feat').value==='1',
+    features:document.getElementById('prc-'+i+'-feat-list').value.split('\n').map(s=>s.trim()).filter(Boolean)
+  }));
+  setData({pricing:plans});renderPricing();showSave('Pricing saved!');
+}
+
+function loadProcEditor(){
+  const steps=getVal('process');
+  document.getElementById('proc-editor').innerHTML=steps.map((s,i)=>`
+    <div class="item-card">
+      <div class="item-card-num">Step ${s.num}</div>
+      <div class="ap-field"><label class="ap-label">Step Name</label><input class="ap-input" id="proc-${i}-name" value="${s.name}"></div>
+      <div class="ap-field"><label class="ap-label">Description</label><textarea class="ap-input" id="proc-${i}-desc" rows="2">${s.desc}</textarea></div>
+    </div>`).join('');
+}
+function saveProc(){
+  const steps=getVal('process').map((s,i)=>({...s,name:document.getElementById('proc-'+i+'-name').value,desc:document.getElementById('proc-'+i+'-desc').value}));
+  setData({process:steps});renderProcess();showSave('Process saved!');
+}
+
+function loadFaqEditor(){
+  const faqs=getVal('faq');
+  document.getElementById('faq-editor').innerHTML=faqs.map((f,i)=>`
+    <div class="item-card" id="faq-item-${i}">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">
+        <div class="item-card-num">FAQ ${i+1}</div>
+        <button class="ap-danger-sm" onclick="removeFaqItem(${i})">✕ Remove</button>
+      </div>
+      <div class="ap-field"><label class="ap-label">Question</label><input class="ap-input" id="faq-${i}-q" value="${f.q.replace(/"/g,'&quot;')}"></div>
+      <div class="ap-field"><label class="ap-label">Answer</label><textarea class="ap-input" id="faq-${i}-a" rows="2">${f.a}</textarea></div>
+    </div>`).join('');
+  const el=document.getElementById('faq-count');
+  if(el)el.textContent=faqs.length+' items';
+}
+function addFaqItem(){
+  const faqs=getVal('faq');
+  faqs.push({q:'New Question?',a:'Answer goes here.'});
+  setData({faq:faqs});renderFAQ();loadFaqEditor();
+}
+function removeFaqItem(i){
+  const faqs=getVal('faq');
+  if(faqs.length<=1){alert('At least 1 FAQ must remain.');return;}
+  faqs.splice(i,1);setData({faq:faqs});renderFAQ();loadFaqEditor();
+}
+function saveFaq(){
+  const faqs=getVal('faq').map((_,i)=>({q:document.getElementById('faq-'+i+'-q').value,a:document.getElementById('faq-'+i+'-a').value}));
+  setData({faq:faqs});renderFAQ();showSave('FAQ saved!');
+}
+
+function loadValEditor(){
+  const vals=getVal('values');
+  document.getElementById('val-editor').innerHTML=vals.map((v,i)=>`
+    <div class="item-card">
+      <div class="item-card-num">Value ${i+1}</div>
+      <div class="item-card-row">
+        <div class="ap-field"><label class="ap-label">Label</label><input class="ap-input" id="val-${i}-label" value="${v.label}"></div>
+        <div class="ap-field"><label class="ap-label">Name</label><input class="ap-input" id="val-${i}-name" value="${v.name}"></div>
+      </div>
+      <div class="ap-field"><label class="ap-label">Description</label><textarea class="ap-input" id="val-${i}-text" rows="2">${v.text}</textarea></div>
+    </div>`).join('');
+}
+function saveVal(){
+  const vals=getVal('values').map((_,i)=>({label:document.getElementById('val-'+i+'-label').value,name:document.getElementById('val-'+i+'-name').value,text:document.getElementById('val-'+i+'-text').value}));
+  setData({values:vals});renderValues();showSave('Values saved!');
+}
+
+function loadProjEditor(){
+  const projs=getVal('projects');
+  document.getElementById('proj-editor').innerHTML=projs.map((p,i)=>`
+    <div class="item-card">
+      <div class="item-card-num">Project ${i+1}</div>
+      <div class="ap-field"><label class="ap-label">Project Name</label><input class="ap-input" id="proj-${i}-name" value="${p.name}"></div>
+      <div class="ap-field"><label class="ap-label">Tags (comma separated)</label><input class="ap-input" id="proj-${i}-tags" value="${p.tags.join(',')}"></div>
+      <div class="ap-field"><label class="ap-label">Link URL</label><input class="ap-input" id="proj-${i}-url" value="${p.url||'#'}"></div>
+    </div>`).join('');
+}
+function saveProj(){
+  const projs=getVal('projects').map((_,i)=>({name:document.getElementById('proj-'+i+'-name').value,tags:document.getElementById('proj-'+i+'-tags').value.split(',').map(s=>s.trim()).filter(Boolean),url:document.getElementById('proj-'+i+'-url').value}));
+  setData({projects:projs});renderProjects();showSave('Projects saved!');
+}
+
+function loadNavEditor(){
+  const links=getVal('navLinks');
+  document.getElementById('nav-editor').innerHTML=links.map((l,i)=>`
+    <div class="item-card-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.5rem">
+      <input class="ap-input" placeholder="Label" id="nav-${i}-label" value="${l.label}" style="font-size:.78rem;padding:.45rem .6rem">
+      <input class="ap-input" placeholder="#href" id="nav-${i}-href" value="${l.href}" style="font-size:.78rem;padding:.45rem .6rem">
+    </div>`).join('');
+}
+function saveNav(){
+  const links=getVal('navLinks').map((_,i)=>({label:document.getElementById('nav-'+i+'-label').value,href:document.getElementById('nav-'+i+'-href').value}));
+  setData({navLinks:links});renderNav();showSave('Nav saved!');
+}
+
+// ========== SAVE CONTENT ==========
+function saveContent(type){
+  const saves={};
+  if(type==='hero'){
+    saves.heroTitle=document.getElementById('ed-heroTitle').value;
+    saves.heroTagline=document.getElementById('ed-heroTagline').value;
+    saves.heroSub=document.getElementById('ed-heroSub').value;
+    saves.heroBadge=document.getElementById('ed-heroBadge').value;
+    document.getElementById('heroTitle').innerHTML=saves.heroTitle.replace(/\n/g,'<br>');
+    document.getElementById('heroTagline').textContent=saves.heroTagline;
+    document.getElementById('heroSub').textContent=saves.heroSub;
+    document.getElementById('heroBadge').textContent=saves.heroBadge;
+  }
+  if(type==='about'){
+    saves.aboutLabel=document.getElementById('ed-aboutLabel').value;
+    saves.aboutTitle=document.getElementById('ed-aboutTitle').value;
+    saves.aboutP1=document.getElementById('ed-aboutP1').value;
+    saves.aboutP2=document.getElementById('ed-aboutP2').value;
+    saves.statNum=document.getElementById('ed-statNum').value;
+    saves.statLabel=document.getElementById('ed-statLabel').value;
+    document.getElementById('aboutLabel').textContent=saves.aboutLabel;
+    document.getElementById('aboutTitle').innerHTML=saves.aboutTitle;
+    document.getElementById('aboutP1').textContent=saves.aboutP1;
+    document.getElementById('aboutP2').textContent=saves.aboutP2;
+    document.getElementById('statNum').textContent=saves.statNum;
+    document.getElementById('statLabel').textContent=saves.statLabel;
+  }
+  if(type==='marquee'){
+    saves.marquee1=document.getElementById('ed-marquee1').value;
+    saves.marquee2=document.getElementById('ed-marquee2').value;
+    renderMarquee();
+  }
+  if(type==='contact'){
+    saves.ctaTitle=document.getElementById('ed-ctaTitle').value;
+    saves.ctaSub=document.getElementById('ed-ctaSub').value;
+    document.getElementById('contactSub').textContent=saves.ctaSub;
+  }
+  if(type==='pages'){
+    saves.lnkProfile=document.getElementById('lnk-profile').value;
+    saves.lnkPage=document.getElementById('lnk-page').value;
+    saves.lnkDp=document.getElementById('lnk-dp').value;
+    saves.lnkChob=document.getElementById('lnk-chob').value;
+    saves.lnkBeast=document.getElementById('lnk-beast').value;
+    saves.lnkUrban=document.getElementById('lnk-urban').value;
+    document.getElementById('fp-dp').href=saves.lnkDp;
+    document.getElementById('fp-beast').href=saves.lnkBeast;
+    document.getElementById('fp-chob').href=saves.lnkChob;
+    document.getElementById('fp-urban').href=saves.lnkUrban;
+    document.getElementById('fl-profile').href=saves.lnkProfile;
+  }
+  if(type==='settings'){
+    saves.siteName=document.getElementById('ed-siteName').value;
+    saves.pageTitle=document.getElementById('ed-pageTitle').value;
+    saves.footerTag=document.getElementById('ed-footerTag').value;
+    saves.copyright=document.getElementById('ed-copyright').value;
+    document.getElementById('footerTag').textContent=saves.footerTag;
+    document.getElementById('footerCopy').textContent=saves.copyright;
+    document.title=saves.pageTitle;
+  }
+  setData(saves);showSave();
+}
+
+function saveSocials(){
+  const saves={
+    socFb:document.getElementById('ed-socFb').value,
+    socDp:document.getElementById('ed-socDp').value,
+    portLink:document.getElementById('ed-portLink').value
+  };
+  document.getElementById('socFb').href=saves.socFb;
+  document.getElementById('socDp').href=saves.socDp;
+  document.getElementById('socPort').href=saves.portLink;
+  document.getElementById('fl-port').href=saves.portLink;
+  setData(saves);showSave('Social links saved!');
+}
+
+// ========== PASSWORD CHANGE ==========
+function changePassword(){
+  const cur=document.getElementById('pw-current').value;
+  const nw=document.getElementById('pw-new').value;
+  const cf=document.getElementById('pw-confirm').value;
+  const errEl=document.getElementById('pw-err');
+  errEl.classList.remove('show');
+  if(cur!==getPass()){errEl.textContent='⚠ Current password incorrect.';errEl.classList.add('show');return;}
+  if(nw.length<6){errEl.textContent='⚠ New password must be at least 6 characters.';errEl.classList.add('show');return;}
+  if(nw!==cf){errEl.textContent='⚠ Passwords do not match.';errEl.classList.add('show');return;}
+  setData({adminPass:nw});
+  document.getElementById('pw-current').value='';
+  document.getElementById('pw-new').value='';
+  document.getElementById('pw-confirm').value='';
+  showSave('Password updated!');
+}
+
+// ========== RESET ALL ==========
+function resetAll(){
+  if(!confirm('সব changes delete হয়ে যাবে। এটা undo করা যাবে না। Continue?'))return;
+  localStorage.removeItem(STORAGE_KEY);
+  gigImages=[];location.reload();
+}
+
+// ========== INIT ==========
+document.addEventListener('DOMContentLoaded',()=>{
+  applyAll();
+  // Scroll reveal
+  document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+  // Cursor hover
+  document.querySelectorAll('a,button,.pc,.faqq,.svi,.gig-card,.prcci,.vi').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cur.classList.add('big'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
+  });
+  // Admin via hash
+  if(window.location.hash==='#admin'){
+    document.getElementById('loginModal').classList.add('show');
+    setTimeout(()=>document.getElementById('pwInput').focus(),300);
+  }
+});
+</script>
+</body>
+</html>
