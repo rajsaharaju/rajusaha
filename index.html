@@ -900,13 +900,18 @@ textarea.ap-input{resize:vertical;min-height:70px}
   <div class="cwrap">
     <h2 class="ctit rv" id="contactTitle">Let's Create Something <em>Meaningful</em></h2>
     <p class="csub rv" id="contactSub">Whether starting from scratch or refreshing your brand — fill out the form or message me directly.</p>
-    <form class="cform rv" onsubmit="handleForm(event)">
-      <div class="fg"><label class="flbl">First Name</label><input type="text" class="finp" placeholder="Tony"></div>
-      <div class="fg"><label class="flbl">Last Name</label><input type="text" class="finp" placeholder="Montana"></div>
-      <div class="fg full"><label class="flbl">Email</label><input type="email" class="finp" placeholder="hello@domain.com"></div>
-      <div class="fg full"><label class="flbl">Message</label><textarea class="finp" placeholder="Tell me about your project..."></textarea></div>
-      <button type="submit" class="sbtn">Send Message →</button>
+    <form class="cform rv" id="contactForm" action="https://formspree.io/f/xykonrad" method="POST" onsubmit="handleForm(event)">
+      <input type="hidden" name="_subject" value="New message from Raju Saha Portfolio!">
+      <input type="hidden" name="_next" value="">
+      <div class="fg"><label class="flbl">First Name</label><input type="text" class="finp" name="first_name" placeholder="Tony" required></div>
+      <div class="fg"><label class="flbl">Last Name</label><input type="text" class="finp" name="last_name" placeholder="Montana"></div>
+      <div class="fg full"><label class="flbl">Email</label><input type="email" class="finp" name="email" placeholder="hello@domain.com" required></div>
+      <div class="fg full"><label class="flbl">Message</label><textarea class="finp" name="message" placeholder="Tell me about your project..." required></textarea></div>
+      <button type="submit" class="sbtn" id="contactSubmitBtn">Send Message →</button>
     </form>
+    <div id="formSuccess" style="display:none;margin-top:1.5rem;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);border-radius:6px;padding:1.2rem 1.5rem;font-family:var(--m);font-size:.72rem;color:#4ade80;letter-spacing:.08em;line-height:1.8">
+      ✓ MESSAGE SENT SUCCESSFULLY!<br><span style="color:rgba(255,255,255,.4)">Thanks for reaching out. Raju will get back to you soon.</span>
+    </div>
   </div>
 </section>
 
@@ -1055,11 +1060,28 @@ function initFaqAccordion(){
 }
 
 // ========== FORM ==========
-function handleForm(e){
+async function handleForm(e){
   e.preventDefault();
-  const btn=e.target.querySelector('.sbtn');
-  btn.textContent='Message Sent! ✓';btn.style.background='#22c55e';
-  setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';e.target.reset()},3000);
+  const form=e.target;
+  const btn=document.getElementById("contactSubmitBtn");
+  const successEl=document.getElementById("formSuccess");
+  btn.textContent="Sending...";btn.disabled=true;btn.style.opacity=".7";
+  try{
+    const res=await fetch("https://formspree.io/f/xykonrad",{
+      method:"POST",body:new FormData(form),headers:{Accept:"application/json"}
+    });
+    if(res.ok){
+      form.reset();btn.style.display="none";successEl.style.display="block";
+      setTimeout(()=>{successEl.style.display="none";btn.style.display="";btn.textContent="Send Message →";btn.disabled=false;btn.style.opacity="";},6000);
+    } else {
+      const data=await res.json();
+      btn.textContent="Try Again";btn.disabled=false;btn.style.opacity="";
+      alert(data.errors?data.errors.map(e=>e.message).join(", "):"Something went wrong.");
+    }
+  } catch(err){
+    btn.textContent="Send Message →";btn.disabled=false;btn.style.opacity="";
+    alert("Network error. Please check your connection.");
+  }
 }
 
 // ========== TOAST ==========
