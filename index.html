@@ -17,7 +17,23 @@ html{scroll-behavior:smooth}
 body{background:var(--black);color:var(--white);font-family:var(--f);font-weight:300;overflow-x:hidden;cursor:none}
 .cur{width:10px;height:10px;background:var(--orange);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:normal}
 .cur.big{width:38px;height:38px;background:rgba(232,76,30,.2);border:1px solid var(--orange)}
+/* Spinning Text Badge Styling */
+#rt-circle span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-origin: 0 80px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--orange);
+  letter-spacing: .05em;
+  font-family: var(--m);
+}
 
+@keyframes rtSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2.5rem;background:rgba(10,10,10,.55);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .nl{font-family:var(--fd);font-size:1.1rem;letter-spacing:.05em;color:var(--white);text-decoration:none}
@@ -810,7 +826,13 @@ textarea.ap-input{resize:vertical;min-height:70px}
 <!-- HERO -->
 <section class="hero">
   <div class="hbg2"></div>
-  <div class="hperson"><img src=v<!-- Round Spinning Text Badge -->
+  <div class="hperson"><img src=v<<div class="hperson">
+  <img src="YOUR_IMAGE_URL" alt="Raju Saha" class="hperson-img" id="heroImg">
+
+  <div style="position:absolute; bottom:18%; right:-20px; width:160px; height:160px; display:flex; align-items:center; justify-content:center; z-index:10;">
+    <div id="rt-circle" style="position:absolute; width:100%; height:100%; animation:rtSpin 10s linear infinite;"></div>
+    <div style="width:60px; height:60px; border-radius:50%; background:var(--orange); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:18px; z-index:2; font-family:var(--fd);">RS</div>
+  </div>
 <div style="position:relative;width:160px;height:160px;display:flex;align-items:center;justify-content:center;margin:1rem auto;">
   <div id="rt-circle" style="position:absolute;width:100%;height:100%;animation:rtSpin 10s linear infinite;"></div>
   <div style="width:60px;height:60px;border-radius:50%;background:#e84c1e;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;z-index:2;">RS</div>
@@ -1815,6 +1837,24 @@ document.addEventListener('DOMContentLoaded',()=>{
     setTimeout(()=>document.getElementById('pwInput').focus(),300);
   }
 });
+</script>
+    <script>
+(function(){
+  // টেক্সট কনফিগারেশন
+  var textStr = 'DIGITAL CREATOR • RAJU SAHA • ';
+  var circleEl = document.getElementById('rt-circle');
+  
+  if(!circleEl) return;
+  
+  // প্রতিটি অক্ষর আলাদা স্প্যানে বিভক্ত করা
+  textStr.split('').forEach(function(char, index){
+    var span = document.createElement('span');
+    span.textContent = char;
+    // অক্ষরের রোটেশন ক্যালকুলেশন
+    span.style.transform = 'rotate(' + (360 / textStr.length * index) + 'deg)';
+    circleEl.appendChild(span);
+  });
+})();
 </script>
 </body>
 </html>
